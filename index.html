@@ -20,7 +20,27 @@
     <source src="happy-birthday.mp3" type="audio/mpeg" />
     Your browser does not support the audio element.
   </audio>
-  <script src="confetti.min.js"></script>
-  <script src="script.js"></script>
+  <script>
+    // Confetti effect
+    var end = Date.now() + (10 * 1000); // 10 seconds of confetti
+    var colors = ['#ff0000', '#00ff00', '#0000ff', '#ff9900'];
+
+    (function frame() {
+      confetti({
+        particleCount: 3,
+        angle: Math.random() * 360,
+        spread: 360,
+        origin: {
+          x: Math.random(),
+          y: Math.random()
+        },
+        colors: colors
+      });
+
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    })();
+  </script>
 </body>
 </html>

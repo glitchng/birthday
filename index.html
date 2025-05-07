@@ -8,7 +8,7 @@
 </head>
 <body>
   <div class="container">
-    <h1>🎉 Happy Birthday, Aunt Ani! 🎉</h1>
+    <h1>🎉 Happy Birthday, Auntie! 🎉</h1>
     <p>
       To my dearest Auntie,<br><br>
       On this special day, I just want to take a moment to celebrate the incredible person you are. Your kindness, warmth, and the love you share with everyone around you make this world a better place. You have been my constant source of inspiration, my safe place, and the one who always knows how to brighten up my day. <br><br>
@@ -16,11 +16,18 @@
       Happy Birthday, Auntie. I love you endlessly!
     </p>
   </div>
-  <audio autoplay loop>
+  <audio id="birthday-audio" autoplay loop>
     <source src="happy-birthday.mp3" type="audio/mpeg" />
     Your browser does not support the audio element.
   </audio>
   <script>
+    // Wait for the audio to load and start it at 29 seconds
+    const audio = document.getElementById('birthday-audio');
+    audio.oncanplaythrough = () => {
+      audio.currentTime = 29;
+      audio.play();
+    };
+
     // Confetti effect
     var end = Date.now() + (10 * 1000); // 10 seconds of confetti
     var colors = ['#ff0000', '#00ff00', '#0000ff', '#ff9900'];
